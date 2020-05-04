@@ -23,11 +23,13 @@ function App() {
 
   return (
     <div className="App" ref={container}>
-      <ViewContainer class="containerSnap" bg="#F8F8F8">
+      <ViewContainer class="containerSnap" bg="#f7f8fa">
         <Intro />
       </ViewContainer>
 
-      <ViewContainer class="containerSnap">page 2</ViewContainer>
+      <ViewContainer style={{ position: "fixed" }} class="containerSnap">
+        page 2
+      </ViewContainer>
 
       <ViewContainer class="containerSnap">view 3</ViewContainer>
     </div>

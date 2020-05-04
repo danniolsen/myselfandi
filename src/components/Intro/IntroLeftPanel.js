@@ -22,12 +22,20 @@ function IntroLeftPanel(props) {
       </div>
 
       <div className={s.linksCon}>
-        <div className={s.socialIcon}>
+        <a
+          href="https://github.com/danniolsen"
+          target="blank"
+          className={s.socialIcon}
+        >
           <GitHub className={s.icon} />
-        </div>
-        <div className={s.socialIcon}>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/danni-olsen/"
+          target="blank"
+          className={s.socialIcon}
+        >
           <Linkedin className={s.icon} />
-        </div>
+        </a>
         <div className={s.socialIcon}>
           <Send className={s.icon} style={{ marginTop: 9 }} />
         </div>
@@ -39,12 +47,18 @@ export default IntroLeftPanel;
 
 const useStyles = makeStyles(theme => ({
   root: { textAlign: "center" },
-  profileimage: { width: "100%", textAlign: "center", marginTop: 50 },
+  profileimage: {
+    width: "100%",
+    textAlign: "center",
+    marginTop: 50,
+    [theme.breakpoints.down("sm")]: { marginTop: 20 }
+  },
   pimage: {
-    width: 150,
-    height: 150,
+    maxWidth: 150,
+    maxHeight: 150,
     borderRadius: "50%",
-    border: "5px solid #FFF"
+    border: "5px solid #FFF",
+    [theme.breakpoints.down("sm")]: { height: 100, width: 100 }
   },
   infoCon: { margin: "10px 0" },
   dot: {
@@ -52,9 +66,15 @@ const useStyles = makeStyles(theme => ({
     height: 10,
     margin: "20px auto",
     background: "#FFF",
-    borderRadius: "50%"
+    borderRadius: "50%",
+    [theme.breakpoints.down("sm")]: { width: 5, height: 5, margin: "10px auto" }
   },
-  name: { fontSize: "1.6em", fontWeight: 300, color: "#FFF" },
+  name: {
+    fontSize: "1.6em",
+    fontWeight: 300,
+    color: "#FFF",
+    [theme.breakpoints.down("sm")]: { fontSize: "1.1em" }
+  },
   txtSmall: { color: "#FFF", fontWeight: 300, marginTop: 10 },
   socialIcon: { display: "inline", cursor: "pointer" },
   icon: {

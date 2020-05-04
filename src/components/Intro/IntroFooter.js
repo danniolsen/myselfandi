@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
-import { ToggleLeft, ToggleRight, ChevronDown } from "react-feather";
+import { ToggleLeft, ToggleRight } from "react-feather";
 
 function IntroFooter(props) {
   const s = useStyles();
@@ -10,7 +10,7 @@ function IntroFooter(props) {
   const [darkMode, setDarkMode] = useState({
     status: false,
     icon: <ToggleLeft size={30} />,
-    color: "#34495e"
+    color: "#FFF"
   });
 
   const toggleDarkMode = darkMode => {
@@ -22,7 +22,7 @@ function IntroFooter(props) {
     let setOff = {
       status: false,
       icon: <ToggleLeft size={30} />,
-      color: "#34495e"
+      color: "#FFF"
     };
     darkMode.status === false ? setDarkMode(setOn) : setDarkMode(setOff);
   };
@@ -31,15 +31,6 @@ function IntroFooter(props) {
     <div className={s.root}>
       <div className={s.footerLeft}>
         <span className={s.devInfo}>2020 - development</span>
-      </div>
-
-      <div className={s.footerCenter}>
-        <ChevronDown
-          onClick={() => null}
-          size={30}
-          color="#34495e"
-          className={s.arrowDown}
-        />
       </div>
       <div className={s.footerRight}>
         <p
@@ -65,37 +56,25 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     [theme.breakpoints.down("xs")]: {
       padding: "4%",
-      width: "92%"
+      width: "92%",
+      top: 0,
+      height: 15
     }
   },
   footerLeft: {
     float: "left",
-    width: "20%",
-    marginTop: 5,
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
-  },
-  footerCenter: {
-    float: "left",
-    width: "60%",
-    textAlign: "center",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%"
-    }
+    width: "50%",
+    marginTop: 5
   },
   footerRight: {
     float: "left",
-    width: "20%",
-    textAlign: "right",
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
+    width: "50%",
+    textAlign: "right"
   },
   toggleButton: { float: "right", width: 40, cursor: "pointer" },
   devInfo: {
-    background: "rgba(000, 000, 000, 0.4)",
-    color: "#FFF",
+    background: "rgba(255, 255, 255, 0.4)",
+    color: "#000",
     padding: "5px 10px",
     borderRadius: 5,
     fontSize: "0.8em"
