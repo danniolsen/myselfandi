@@ -4,6 +4,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/";
 import Background from "../assets/images/leftPanelBg2.png";
 import IntroLeftPanel from "../components/Intro/IntroLeftPanel";
+import IntroRightPanel from "../components/Intro/IntroRightPanel";
 import IntroFooter from "../components/Intro/IntroFooter";
 
 function Intro(props) {
@@ -14,7 +15,9 @@ function Intro(props) {
       <div className={s.leftPanel}>
         <IntroLeftPanel />
       </div>
-      <div className={s.rightPanel}>right</div>
+      <div className={s.rightPanel}>
+        <IntroRightPanel />
+      </div>
 
       <div className={s.footer}>
         <IntroFooter />
@@ -28,61 +31,41 @@ export default Intro;
 const useStyles = makeStyles(theme => ({
   root: {
     fontWeight: 100,
+    overflow: "auto",
     width: "100vw",
     minHeight: "100vh",
     position: "relative"
   },
   leftPanel: {
-    height: "100vh",
     float: "left",
+    overflow: "auto",
+    minHeight: "100vh",
     backgroundImage: `url(${Background})`,
     backgroundSize: "cover",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      maxHeight: "60vh"
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: "100%",
-      height: "60vh"
+    [theme.breakpoints.up("xs")]: {
+      width: "100vw",
+      height: "42vh",
+      minHeight: 385
     },
     [theme.breakpoints.up("md")]: {
-      width: "35%",
-      height: "100vh"
+      height: "100vh",
+      width: "35vw"
     }
   },
   rightPanel: {
-    height: "100vh",
     float: "left",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      maxHeight: "40vh"
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: "100%",
-      height: "40%"
+    minHeight: "100vh",
+    backgroundImage:
+      "linear-gradient( -27deg, #7cd1c4 0%, #64b9ac 40%, #64b9ac 40%, #7cd1c4 40%)",
+    [theme.breakpoints.up("xs")]: {
+      width: "100vw"
     },
     [theme.breakpoints.up("md")]: {
-      width: "65%"
+      width: "65vw"
     }
   }
 }));
 
 /*Intro.defaultProps = {};
 Intro.propTypes = {};
-*/
-
-/*
-import JsIcon from "../assets/graphics/js.png";
-import BIcon from "../assets/graphics/bootstrap.png";
-import DockerIcon from "../assets/graphics/docker.png";
-import FirebaseIcon from "../assets/graphics/firebase.png";
-import GitIcon from "../assets/graphics/git.png";
-import GithubIcon from "../assets/graphics/github.png";
-import GraphQlIcon from "../assets/graphics/graphql.png";
-import MaterialIcon from "../assets/graphics/materialui.png";
-import MysqlIcon from "../assets/graphics/mysql.png";
-import PostgresIcon from "../assets/graphics/postgres.png";
-import NodeIcon from "../assets/graphics/nodejs.png";
-import ReactIcon from "../assets/graphics/react.png";
-import ReduxIcon from "../assets/graphics/redux.png";
 */

@@ -16,11 +16,11 @@ function ViewContainer(props) {
 export default ViewContainer;
 
 const useStyles = makeStyles(theme => ({
-  root: { minHeight: "100vh", width: "100vw" }
+  root: { minHeight: "100vh", width: "100vw", position: "relative" }
 }));
 
 ViewContainer.defaultProps = {
-  bg: "#CCC"
+  bg: "#FFF"
 };
 ViewContainer.propTypes = {
   //children: PropTypes.element.isRequired,
