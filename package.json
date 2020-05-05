@@ -2,6 +2,7 @@
   "name": "mybio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "mybiodanni.firebaseapp.com",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@testing-library/jest-dom": "^4.2.4",

@@ -72,14 +72,14 @@ const useStyles = makeStyles(theme => ({
   name: {
     fontSize: "1.6em",
     fontWeight: 300,
-    color: "#FFF",
+    color: "#34495e",
     [theme.breakpoints.down("sm")]: { fontSize: "1.1em" }
   },
-  txtSmall: { color: "#FFF", fontWeight: 300, marginTop: 10 },
+  txtSmall: { color: "#34495e", fontWeight: 300, marginTop: 10 },
   socialIcon: { display: "inline", cursor: "pointer" },
   icon: {
     padding: 15,
-    background: "#FFF",
+    background: "#F8F8F8",
     margin: "10px 20px",
     borderRadius: 10,
     width: 25,

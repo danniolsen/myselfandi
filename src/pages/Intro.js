@@ -2,7 +2,7 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
-import Background from "../assets/images/leftPanelBg2.png";
+import Background from "../assets/images/leftPanelBg.png";
 import IntroLeftPanel from "../components/Intro/IntroLeftPanel";
 import IntroRightPanel from "../components/Intro/IntroRightPanel";
 import IntroFooter from "../components/Intro/IntroFooter";
@@ -34,14 +34,14 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
     width: "100vw",
     minHeight: "100vh",
-    position: "relative"
+    position: "relative",
+    backgroundImage: `url(${Background})`,
+    backgroundSize: "cover"
   },
   leftPanel: {
     float: "left",
     overflow: "auto",
     minHeight: "100vh",
-    backgroundImage: `url(${Background})`,
-    backgroundSize: "cover",
     [theme.breakpoints.up("xs")]: {
       width: "100vw",
       height: "42vh",
