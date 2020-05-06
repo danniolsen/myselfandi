@@ -7,6 +7,7 @@ import { GitHub, Send, Linkedin } from "react-feather";
 
 function IntroLeftPanel(props) {
   const s = useStyles();
+  const { openContact } = props;
   return (
     <div className={s.root}>
       <div className={s.profileimage}>
@@ -37,7 +38,11 @@ function IntroLeftPanel(props) {
           <Linkedin className={s.icon} />
         </a>
         <div className={s.socialIcon}>
-          <Send className={s.icon} style={{ marginTop: 9 }} />
+          <Send
+            onClick={() => openContact()}
+            className={s.icon}
+            style={{ marginTop: 9 }}
+          />
         </div>
       </div>
     </div>
@@ -65,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     width: 10,
     height: 10,
     margin: "20px auto",
-    background: "#FFF",
+    background: "#34495e",
     borderRadius: "50%",
     [theme.breakpoints.down("sm")]: { width: 5, height: 5, margin: "10px auto" }
   },

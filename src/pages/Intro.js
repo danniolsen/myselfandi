@@ -1,19 +1,39 @@
 "use-strict";
-import React from "react";
+import React, { useState } from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import Background from "../assets/images/leftPanelBg.png";
 import IntroLeftPanel from "../components/Intro/IntroLeftPanel";
 import IntroRightPanel from "../components/Intro/IntroRightPanel";
 import IntroFooter from "../components/Intro/IntroFooter";
+import DefaultDialog from "../components/dialogs/DefaultDialog";
+import ContactForm from "../components/forms/ContactForm";
 
 function Intro(props) {
   const s = useStyles();
+  const [dialogOpen, setDialogOpen] = useState(false);
 
+  const contactNow = () => {
+    console.log("open now");
+    setDialogOpen(true);
+  };
+
+  const closeContact = () => {
+    setDialogOpen(false);
+  };
   return (
     <div className={s.root}>
+      <DefaultDialog
+        title="Contact"
+        style={{ background: "#F00" }}
+        open={dialogOpen}
+        closeModal={() => closeContact()}
+      >
+        <ContactForm />
+      </DefaultDialog>
+
       <div className={s.leftPanel}>
-        <IntroLeftPanel />
+        <IntroLeftPanel openContact={() => contactNow()} />
       </div>
       <div className={s.rightPanel}>
         <IntroRightPanel />
