@@ -11,7 +11,7 @@ function IntroRightPanel(props) {
 
   return (
     <div className={s.root}>
-      {skills.skills.map((skillType, i) => {
+      {skills.skills.map(skillType => {
         return (
           <div className={s.skillsContainer} key={skillType.skill_type_name}>
             <header className={s.stackHead}>
@@ -37,9 +37,9 @@ const TechStack = props => {
   const s = useStyles();
   return (
     <Grid container>
-      {skills.map((skill, i) => {
+      {skills.map(skill => {
         return (
-          <Grid item xs={4} sm={3} md={2} key={i}>
+          <Grid item xs={4} sm={3} md={2} key={skill.skill_name}>
             <div className={s.logoCon}>
               <img
                 src={require(`../../assets/graphics/${skill.skill_logo}`)}
