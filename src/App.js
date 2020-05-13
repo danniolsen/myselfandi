@@ -2,6 +2,7 @@ import React from "react";
 import "./css/App.css";
 import ViewContainer from "./components/ViewContainer";
 import Intro from "./pages/Intro";
+import Experiences from "./pages/Experiences";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <Intro />
       </ViewContainer>
 
-      <ViewContainer>page 2</ViewContainer>
+      <ViewContainer>
+        <Experiences />
+      </ViewContainer>
 
       <ViewContainer>view 3</ViewContainer>
     </div>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
-import { Inbox, Send, Briefcase } from "react-feather";
+//import { Inbox, Send, Briefcase } from "react-feather";
 
 function ContactForm(props) {
   const s = useStyles();
@@ -41,7 +41,7 @@ function ContactForm(props) {
     <div className={s.root}>
       <div className={s.inputCon}>
         <InputField
-          icon={<Inbox />}
+          //icon={<Inbox />}
           txt="to"
           type="email"
           name="reciver"
@@ -51,7 +51,7 @@ function ContactForm(props) {
       </div>
       <div className={s.inputCon}>
         <InputField
-          icon={<Send />}
+          //icon={<Send />}
           txt="from"
           type="email"
           name="sender"
@@ -62,7 +62,7 @@ function ContactForm(props) {
       </div>
       <div className={s.inputCon}>
         <InputField
-          icon={<Briefcase />}
+          //icon={<Briefcase />}
           txt="Company"
           type="text"
           name="company"

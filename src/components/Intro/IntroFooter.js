@@ -2,26 +2,26 @@
 import React, { useState } from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
-import { ToggleLeft, ToggleRight } from "react-feather";
+//import { ToggleLeft, ToggleRight } from "react-feather";
 
 function IntroFooter(props) {
   const s = useStyles();
 
   const [darkMode, setDarkMode] = useState({
     status: false,
-    icon: <ToggleLeft size={30} />,
+    //icon: <ToggleLeft size={30} />,
     color: "#FFF"
   });
 
   const toggleDarkMode = darkMode => {
     let setOn = {
       status: true,
-      icon: <ToggleRight size={30} />,
+      //icon: <ToggleRight size={30} />,
       color: "#27ae60"
     };
     let setOff = {
       status: false,
-      icon: <ToggleLeft size={30} />,
+      //icon: <ToggleLeft size={30} />,
       color: "#FFF"
     };
     darkMode.status === false ? setDarkMode(setOn) : setDarkMode(setOff);

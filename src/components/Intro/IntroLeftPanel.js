@@ -3,11 +3,15 @@ import React from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import ProfileImage from "../../assets/images/profileimage.png";
-import { GitHub, Send, Linkedin } from "react-feather";
+import Linkedin from "../../assets/contact/linkedin.png";
+import Github from "../../assets/contact/github.png";
+import Instagram from "../../assets/contact/instagram.png";
+import Email from "../../assets/contact/email.png";
 
 function IntroLeftPanel(props) {
   const s = useStyles();
   const { openContact } = props;
+
   return (
     <div className={s.root}>
       <div className={s.profileimage}>
@@ -24,30 +28,37 @@ function IntroLeftPanel(props) {
 
       <div className={s.linksCon}>
         <a
-          href="https://github.com/danniolsen"
-          target="blank"
-          className={s.socialIcon}
-        >
-          <GitHub className={s.icon} />
-        </a>
-        <a
           href="https://www.linkedin.com/in/danni-olsen/"
           target="blank"
           className={s.socialIcon}
         >
-          <Linkedin className={s.icon} />
+          <img src={Linkedin} alt="social icon" className={s.icon} />
         </a>
-        <div className={s.socialIcon}>
-          <Send
-            onClick={() => openContact()}
-            className={s.icon}
-            style={{ marginTop: 9 }}
-          />
+
+        <a
+          href="https://github.com/danniolsen"
+          target="blank"
+          className={s.socialIcon}
+        >
+          <img src={Github} alt="social icon" className={s.icon} />
+        </a>
+
+        <a
+          href="https://www.instagram.com/danni_olsen/"
+          target="blank"
+          className={s.socialIcon}
+        >
+          <img src={Instagram} alt="social icon" className={s.icon} />
+        </a>
+
+        <div className={s.socialIcon} onClick={() => openContact()}>
+          <img src={Email} alt="social icon" className={s.icon} />
         </div>
       </div>
     </div>
   );
 }
+
 export default IntroLeftPanel;
 
 const useStyles = makeStyles(theme => ({
@@ -83,12 +94,16 @@ const useStyles = makeStyles(theme => ({
   txtSmall: { color: "#34495e", fontWeight: 300, marginTop: 10 },
   socialIcon: { display: "inline", cursor: "pointer" },
   icon: {
-    padding: 15,
+    maxWidth: 60,
+    maxHeight: 60,
+    minWidth: 45,
+    minHeight: 45,
     background: "#F8F8F8",
-    margin: "10px 20px",
+    margin: 10,
     borderRadius: 10,
-    width: 25,
-    height: 25
+    "&:hover": {
+      opacity: 0.8
+    }
   }
 }));
 
