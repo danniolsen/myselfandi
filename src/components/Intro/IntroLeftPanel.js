@@ -22,7 +22,7 @@ function IntroLeftPanel(props) {
         <div className={s.dot} />
         <p className={s.txtSmall}>Fullstack Developer</p>
         <p className={s.txtSmall}>Copenhagen - Denmark</p>
-        <p className={s.txtSmall}>Computer Science Graduate</p>
+        <p className={s.txtSmall}>Computer Science - 2019</p>
         <div className={s.dot} />
       </div>
 
