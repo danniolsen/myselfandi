@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: "100vh",
     float: "right",
     padding: "2vw",
-    overflow: "hidden",
+
     background: `url(${Background})no-repeat center center fixed`,
     backgroundSize: "cover"
   },

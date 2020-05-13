@@ -1,24 +1,13 @@
 "use-strict";
-import React, { useEffect } from "react";
+import React from "react";
 //import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
-import { fetchSkills } from "../../redux/actions/skillsActions";
 
 function IntroRightPanel(props) {
   const s = useStyles();
-  const { skills, skillsDis } = props;
-
-  useEffect(
-    () => {
-      console.log(skills);
-      setTimeout(() => {
-        skillsDis();
-      }, 1000);
-    },
-    [skillsDis]
-  );
+  const { skills } = props;
 
   return (
     <div className={s.root}>
@@ -50,7 +39,7 @@ const TechStack = props => {
     <Grid container>
       {skills.map((skill, i) => {
         return (
-          <Grid item xs={3} sm={2} md={2} key={i}>
+          <Grid item xs={4} sm={3} md={2} key={i}>
             <div className={s.logoCon}>
               <img
                 src={require(`../../assets/graphics/${skill.skill_logo}`)}
@@ -71,12 +60,9 @@ const mapStateToProps = state => ({
   skills: state.skills
 });
 
-const mapDispatchToProps = dispatch => ({
-  skillsDis: payload => dispatch(fetchSkills())
-});
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(IntroRightPanel);
 
 const useStyles = makeStyles(theme => ({
@@ -90,12 +76,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.3em",
     padding: "0px 30px 20px 30px",
     color: "#FFF",
-    fontWeight: 300
+    fontWeight: 300,
+    [theme.breakpoints.down("sm")]: { paddingLeft: 10 }
   },
   icon: { float: "left", marginRight: 10 },
   title: { float: "left", marginTop: 3 },
   logoCon: { textAlign: "center", marginBottom: 40 },
-  logo: { maxWidth: "50%", paddingBottom: 10 },
+  logo: { maxWidth: 70, paddingBottom: 10 },
   logoTxt: { fontSize: "0.9em", fontWeight: 300, color: "#FFF" },
   loadingCon: { textAlign: "center", padding: "20px 0 50px 0", color: "#FFF" },
   skillsContainer: { width: "100%", marginBottom: 10 }

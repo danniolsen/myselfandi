@@ -1,7 +1,6 @@
 html,
 body {
   min-height: 100vh;
-  overflow: auto;
   position: "relative";
   -ms-overflow-style: none;
 }
@@ -10,6 +9,5 @@ body::-webkit-scrollbar {
 }
 .App {
   max-width: 100vw;
-  overflow: scroll;
   min-height: 100vh;
 }
