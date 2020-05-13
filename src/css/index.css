@@ -11,3 +11,6 @@ a:visited {
   text-decoration: none;
   color: #000;
 }
+body {
+  overflow: hidden;
+}

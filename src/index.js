@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./css/index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { ParallaxProvider } from "react-scroll-parallax";
+import configureStore from "./redux/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <ParallaxProvider>
+  <Provider store={configureStore()}>
     <App />
-  </ParallaxProvider>,
+  </Provider>,
   document.getElementById("root")
 );
 

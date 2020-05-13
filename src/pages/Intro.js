@@ -55,7 +55,8 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     minHeight: "100vh",
     position: "relative",
-    backgroundImage: `url(${Background})`,
+    overflow: "hidden",
+    background: `url(${Background})no-repeat center center fixed`,
     backgroundSize: "cover"
   },
   leftPanel: {
