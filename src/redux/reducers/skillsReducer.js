@@ -23,7 +23,7 @@ const skillsReducer = (state = initialState, action) => {
         loading: false
       };
     default:
-      return initialState;
+      return { ...state };
   }
 };
 

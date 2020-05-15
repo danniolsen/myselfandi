@@ -3,12 +3,11 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import Grid from "@material-ui/core/Grid";
-//import moment from "moment";
-//import { ChevronDown } from "react-feather";
+
 const DataBox = props => {
   const s = useStyles();
   const { color, company, position, sDate, eDate } = props;
-  const { icon, content } = props;
+  const { logo, description } = props;
 
   useEffect(
     () => {
@@ -34,7 +33,11 @@ const DataBox = props => {
           style={{ background: color }}
         >
           <div className={s.leftPanel}>
-            <img src={icon} alt="icon" className={s.icon} />
+            <img
+              src={require(`../../assets/logos/${logo}`)}
+              alt="icon"
+              className={s.icon}
+            />
             <p className={s.companyName}>{company}</p>
             <p className={s.position}>{position}</p>
             <div className={s.duration}>
@@ -45,7 +48,7 @@ const DataBox = props => {
         </Grid>
 
         <Grid item xs={12} sm={8} md={8} lg={8} className={s.boxContent}>
-          <p className={s.contentTxt}>{content}</p>
+          <p className={s.contentTxt}>{description}</p>
           <div className={s.expandCon} onClick={() => null}>
             <p className={s.readmore}>Read more</p>
           </div>
