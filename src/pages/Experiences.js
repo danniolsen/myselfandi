@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/";
 import Background from "../assets/images/experience.png";
-import DataBox from "../components/experinces/DataBox";
+import ExperienceContainer from "../components/experinces/ExperienceContainer";
 
 import { connect } from "react-redux";
 import { fetchExps } from "../redux/actions/expActions";
@@ -27,19 +27,17 @@ function Experiences(props) {
       <div className={s.experienceCon}>
         {exps.exps.map(exp => {
           return (
-            <div className={s.row} key={exp._id}>
-              <section className={s.content}>
-                <DataBox
-                  company={exp.exp_company}
-                  position={exp.exp_position}
-                  sDate={exp.exp_sDate}
-                  eDate={exp.exp_eDate}
-                  color={exp.exp_color}
-                  logo={exp.exp_logo}
-                  description={exp.exp_description}
-                />
-              </section>
-            </div>
+            <section key={exp._id} className={s.content}>
+              <ExperienceContainer
+                company={exp.exp_company}
+                position={exp.exp_position}
+                startDate={exp.exp_start_date}
+                endDate={exp.exp_end_date}
+                color={exp.exp_color}
+                logo={exp.exp_logo}
+                description={exp.exp_descriptions}
+              />
+            </section>
           );
         })}
       </div>
@@ -66,7 +64,6 @@ const useStyles = makeStyles(theme => ({
     minHeight: "100vh",
     float: "right",
     padding: "2vw",
-
     background: `url(${Background})no-repeat center center fixed`,
     backgroundSize: "cover"
   },
@@ -78,19 +75,5 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 100,
     padding: "50px 0px"
   },
-
-  row: {
-    width: "100%",
-    float: "left",
-    "&:nth-child(even) section": {
-      float: "right",
-      borderRight: "none"
-    }
-  },
-  content: {
-    width: "50%",
-    [theme.breakpoints.down("md")]: {
-      width: "100%"
-    }
-  }
+  content: { display: "flex" }
 }));
