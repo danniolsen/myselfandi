@@ -39,7 +39,7 @@ const TechStack = props => {
     <Grid container>
       {skills.map(skill => {
         return (
-          <Grid item xs={4} sm={3} md={2} key={skill.skill_name}>
+          <Grid item xs={4} sm={2} md={2} key={skill.skill_name}>
             <div className={s.logoCon}>
               <img
                 src={require(`../../assets/graphics/${skill.skill_logo}`)}
