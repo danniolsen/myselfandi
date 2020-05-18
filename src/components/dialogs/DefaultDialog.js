@@ -1,6 +1,6 @@
 "use-strict";
 import React from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -46,5 +46,13 @@ const useStyles = makeStyles(theme => ({
   root: {}
 }));
 
-/*DefaultDialog.defaultProps = {};
-DefaultDialog.propTypes = {};*/
+DefaultDialog.defaultProps = {
+  open: false,
+  title: "No title provided",
+  btnTxt: ""
+};
+DefaultDialog.propTypes = {
+  open: PropTypes.bool,
+  title: PropTypes.string,
+  btnTxt: PropTypes.string
+};

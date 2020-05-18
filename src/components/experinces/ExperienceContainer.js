@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import moment from "moment";
+import DefaultDialog from "../../components/dialogs/DefaultDialog";
+
 const ExperienceContainer = props => {
   const s = useStyles();
   const [totalDate, setTotalDate] = useState({ yyyy: 0, mm: 0, dd: 0 });
   const { color, company, position, startDate, endDate } = props;
+  const [modalOpen, setModalOpen] = useState(false);
   const { logo, description } = props;
 
   useEffect(
@@ -28,8 +31,27 @@ const ExperienceContainer = props => {
     [endDate, startDate]
   );
 
+  const readMore = status => {
+    setModalOpen(status);
+  };
+
   return (
     <div className={s.box}>
+      <DefaultDialog
+        open={modalOpen}
+        title={company}
+        closeModal={() => readMore(false)}
+      >
+        {description.map((desc, i) => {
+          return (
+            <div key={i}>
+              <p className={s.descTitle}>{desc.des_title}</p>
+              <p className={s.descText}>{desc.des_text}</p>
+            </div>
+          );
+        })}
+      </DefaultDialog>
+
       <header
         className={s.containerHead}
         style={{ borderBottom: `2px solid ${color}` }}
@@ -62,23 +84,20 @@ const ExperienceContainer = props => {
       </header>
 
       <div className={s.descriptionCon}>
-        {description.map((desc, i) => {
-          return (
-            <div key={i}>
-              <p className={s.descTitle}>{desc.des_title}</p>
-              <p className={s.descText}>{desc.des_text}</p>
-            </div>
-          );
-        })}
+        <div>
+          <p className={s.descTitle}>{description[0].des_title}</p>
+          <p className={s.descText}>{description[0].des_text}</p>
+        </div>
       </div>
+      {description.length > 1 && (
+        <div className={s.moreCon}>
+          <p onClick={() => readMore(true)}>read more</p>
+        </div>
+      )}
     </div>
   );
 };
-/*
-Years - {totalDate.yyyy}
-Months - {totalDate.mm}
-days - {totalDate.dd}
-*/
+
 export default ExperienceContainer;
 
 const useStyles = makeStyles(theme => ({
@@ -95,10 +114,7 @@ const useStyles = makeStyles(theme => ({
       width: "100%"
     }
   },
-  containerHead: {
-    width: "100%",
-    float: "left"
-  },
+  containerHead: { width: "100%", float: "left", marginBottom: 10 },
   logoCon: {
     width: "10%",
     float: "left",
@@ -139,13 +155,32 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: { width: "10%" }
   },
   dateTxt: { color: "#7f8c8d", padding: 3 },
-  descriptionCon: { float: "left", width: "96%", padding: "10px 2%" },
+  descriptionCon: {
+    float: "left",
+    width: "96%",
+    padding: "5px 2%",
+    maxHeight: 100,
+    overflow: "hidden"
+  },
   descTitle: { paddingBottom: 5 },
   descText: {
-    margin: "0px 10px 20px 10px",
+    marginLeft: 5,
     lineHeight: 1.6,
     color: "#535454",
-    fontWeight: 300
+    fontWeight: 300,
+    fontSize: "0.9em",
+    margin: "15px 0px"
+  },
+  moreCon: {
+    width: "96%",
+    padding: "10px 2%",
+    float: "left",
+    textAlign: "right",
+    color: "#7f8c8d",
+    cursor: "pointer",
+    "&:hover": {
+      opacity: 0.6
+    }
   }
 }));
 
