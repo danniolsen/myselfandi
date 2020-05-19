@@ -1,5 +1,5 @@
-import axios from "axios"; // delete me
-import IsInDev from "../../configs/devConfig"; // delete me
+import axios from "axios";
+import IsInDev from "../../configs/devConfig";
 import { fetchExpDone, fetchExpError } from "../types/expTypes";
 
 const fetchExps = () => {
