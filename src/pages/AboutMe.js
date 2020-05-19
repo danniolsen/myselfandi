@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import { Grid } from "@material-ui/core";
+import Background from "../assets/images/activities.png";
 
 function AboutMe(props) {
   const { headline, fieldData } = props;
@@ -10,40 +11,42 @@ function AboutMe(props) {
 
   return (
     <div className={s.root}>
-      <div className={s.headline}>
-        <p>{headline}</p>
-      </div>
+      <div className={s.containerInner}>
+        <div className={s.headline}>
+          <p>{headline}</p>
+        </div>
 
-      <Grid container>
-        {fieldData.map((data, i) => {
-          return (
-            <Grid item key={i} xs={12} sm={6} md={4} lg={3} xl={2}>
-              <div className={s.container}>
-                <header className={s.header}>
-                  <div className={s.headerIcon}>
-                    <i className="material-icons" style={{ fontSize: 30 }}>
-                      {data.act_i_icon}
-                    </i>
-                  </div>
-                  <img
-                    src={require(`../assets/aboutMe/${data.act_i_image}`)}
-                    className={s.headerImg}
-                    alt={data.act_i_name}
-                  />
-                  <div className={s.headlineCon}>
-                    <p className={s.headerHeadline}>{data.act_i_name}</p>
-                    <p className={s.headlineSub}>{data.act_i_subName}</p>
-                  </div>
-                </header>
+        <Grid container>
+          {fieldData.map((data, i) => {
+            return (
+              <Grid item key={i} xs={12} sm={6} md={4} lg={3} xl={2}>
+                <div className={s.container}>
+                  <header className={s.header}>
+                    <div className={s.headerIcon}>
+                      <i className="material-icons" style={{ fontSize: 30 }}>
+                        {data.act_i_icon}
+                      </i>
+                    </div>
+                    <img
+                      src={require(`../assets/aboutMe/${data.act_i_image}`)}
+                      className={s.headerImg}
+                      alt={data.act_i_name}
+                    />
+                    <div className={s.headlineCon}>
+                      <p className={s.headerHeadline}>{data.act_i_name}</p>
+                      <p className={s.headlineSub}>{data.act_i_subName}</p>
+                    </div>
+                  </header>
 
-                <div className={s.description}>
-                  <p>{data.act_i_description}</p>
+                  <div className={s.description}>
+                    <p>{data.act_i_description}</p>
+                  </div>
                 </div>
-              </div>
-            </Grid>
-          );
-        })}
-      </Grid>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
     </div>
   );
 }
@@ -53,8 +56,10 @@ export default AboutMe;
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100vw",
-    background:
-      "url(https://images.pexels.com/photos/430200/pexels-photo-430200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) center center fixed no-repeat",
+    background: "#F00"
+  },
+  containerInner: {
+    background: `url(${Background}) center center fixed no-repeat`,
     backgroundSize: "cover"
   },
   headline: {
@@ -113,9 +118,12 @@ const useStyles = makeStyles(theme => ({
   },
   description: {
     padding: 10,
-    height: 150,
+
+    lineHeight: "1.5",
     fontWeight: 200,
-    overflow: "hidden"
+    overflow: "hidden",
+    [theme.breakpoints.down("xs")]: { height: "auto" },
+    [theme.breakpoints.down("sm")]: {}
   }
 }));
 
