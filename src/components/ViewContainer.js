@@ -16,7 +16,7 @@ function ViewContainer(props) {
 export default ViewContainer;
 
 const useStyles = makeStyles(theme => ({
-  root: { minHeight: "100vh", width: "100vw" }
+  root: { width: "100vw", float: "left" }
 }));
 
 ViewContainer.defaultProps = {
