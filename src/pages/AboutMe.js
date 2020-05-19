@@ -1,13 +1,21 @@
 "use-strict";
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import { Grid } from "@material-ui/core";
 import Background from "../assets/images/activities.png";
+import DefaultDialog from "../components/dialogs/DefaultDialog";
 
 function AboutMe(props) {
   const { headline, fieldData } = props;
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [readMoreData, setReadMoreData] = useState({});
   const s = useStyles();
+
+  const readMore = (open, data) => {
+    setReadMoreData(data);
+    setMoreOpen(open);
+  };
 
   return (
     <div className={s.root}>
@@ -17,6 +25,14 @@ function AboutMe(props) {
         </div>
 
         <Grid container>
+          <DefaultDialog
+            open={moreOpen}
+            title={readMoreData.act_i_name}
+            closeModal={() => readMore(false, {})}
+          >
+            <p className={s.moretext}>{readMoreData.act_i_description}</p>
+          </DefaultDialog>
+
           {fieldData.map((data, i) => {
             return (
               <Grid item key={i} xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -40,6 +56,14 @@ function AboutMe(props) {
 
                   <div className={s.description}>
                     <p>{data.act_i_description}</p>
+                  </div>
+                  <div className={s.expandCon}>
+                    <i
+                      className="material-icons"
+                      onClick={() => readMore(true, data)}
+                    >
+                      launch
+                    </i>
                   </div>
                 </div>
               </Grid>
@@ -118,12 +142,20 @@ const useStyles = makeStyles(theme => ({
   },
   description: {
     padding: 10,
-
+    height: 120,
     lineHeight: "1.5",
     fontWeight: 200,
-    overflow: "hidden",
-    [theme.breakpoints.down("xs")]: { height: "auto" },
-    [theme.breakpoints.down("sm")]: {}
+    overflow: "hidden"
+  },
+  moretext: { lineHeight: "1.8", fontWeight: 200, paddingBottom: 20 },
+  expandCon: {
+    width: "90%",
+    padding: "10px 5% 6px 5%",
+    textAlign: "right",
+    cursor: "pointer",
+    color: "#6b6b6b",
+    "&:hover": { opacity: "0.7" },
+    backgroundImage: "linear-gradient(to bottom, transparent, White)"
   }
 }));
 
