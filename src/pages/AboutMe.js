@@ -20,6 +20,11 @@ function AboutMe(props) {
             <Grid item key={i} xs={12} sm={6} md={4} lg={3} xl={2}>
               <div className={s.container}>
                 <header className={s.header}>
+                  <div className={s.headerIcon}>
+                    <i className="material-icons" style={{ fontSize: 30 }}>
+                      {data.act_i_icon}
+                    </i>
+                  </div>
                   <img
                     src={require(`../assets/aboutMe/${data.act_i_image}`)}
                     className={s.headerImg}
@@ -76,6 +81,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "#FFF",
     position: "relative"
+  },
+  headerIcon: {
+    position: "absolute",
+    background: "rgba(000,000,000, 0.5)",
+    padding: 10,
+    width: 30,
+    height: 30,
+    borderRadius: "50%",
+    top: 10,
+    right: 10
   },
   headerImg: {
     width: "100%",
