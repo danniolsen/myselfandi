@@ -1,13 +1,15 @@
 "use-strict";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/";
 import { Grid } from "@material-ui/core";
 import Background from "../assets/images/activities.png";
 import DefaultDialog from "../components/dialogs/DefaultDialog";
+import { connect } from "react-redux";
+import { fetchActivities } from "../redux/actions/activitiesActions";
 
 function AboutMe(props) {
-  const { headline, fieldData } = props;
+  const { headline, fieldData, activitiesDis } = props;
   const [moreOpen, setMoreOpen] = useState(false);
   const [readMoreData, setReadMoreData] = useState({});
   const s = useStyles();
@@ -16,6 +18,14 @@ function AboutMe(props) {
     setReadMoreData(data);
     setMoreOpen(open);
   };
+
+  useEffect(
+    () => {
+      activitiesDis();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <div className={s.root}>
@@ -57,13 +67,11 @@ function AboutMe(props) {
                   <div className={s.description}>
                     <p>{data.act_i_description}</p>
                   </div>
-                  <div className={s.expandCon}>
-                    <i
-                      className="material-icons"
-                      onClick={() => readMore(true, data)}
-                    >
-                      launch
-                    </i>
+                  <div
+                    className={s.expandCon}
+                    onClick={() => readMore(true, data)}
+                  >
+                    <i className="material-icons">launch</i>
                   </div>
                 </div>
               </Grid>
@@ -75,7 +83,14 @@ function AboutMe(props) {
   );
 }
 
-export default AboutMe;
+const mapDispatchToProps = dispatch => ({
+  activitiesDis: payload => dispatch(fetchActivities())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AboutMe);
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -154,8 +169,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "right",
     cursor: "pointer",
     color: "#6b6b6b",
-    "&:hover": { opacity: "0.7" },
-    backgroundImage: "linear-gradient(to bottom, transparent, White)"
+    "&:hover": { opacity: "0.7" }
   }
 }));
 

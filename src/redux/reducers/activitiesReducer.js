@@ -5,6 +5,7 @@ const initialState = {
     { act_title: "Living and traveling abroad", act_descriptions: [] },
     { act_title: "Personal Activities", act_descriptions: [] }
   ],
+  loading: true,
   error: null
 };
 
@@ -14,11 +15,13 @@ const activitiesReducer = (state = initialState, action) => {
       return {
         ...state,
         activities: action.payload.activities,
+        loading: false,
         error: null
       };
     case ACTIVITIES_ERROR:
       return {
         activities: initialState.activities,
+        loading: false,
         error: "Could not fetch data"
       };
     default:

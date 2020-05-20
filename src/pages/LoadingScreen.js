@@ -5,7 +5,6 @@ import Dial from "../assets/loading.gif";
 
 function LoadingScreen(props) {
   const s = useStyles();
-  const { loading } = props;
   const [fixedStyles, setFixedStyles] = useState({
     position: "fixed",
     top: 0,
@@ -24,10 +23,9 @@ function LoadingScreen(props) {
           left: 0,
           behavior: "smooth"
         });
-        loading(false);
       }
     },
-    [done, loading]
+    [done]
   );
 
   return (

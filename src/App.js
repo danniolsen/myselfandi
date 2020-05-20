@@ -6,36 +6,31 @@ import ViewContainer from "./components/ViewContainer";
 import Intro from "./pages/Intro";
 import Experiences from "./pages/Experiences";
 import AboutMe from "./pages/AboutMe";
-import { fetchActivities } from "./redux/actions/activitiesActions";
 
 function App(props) {
   const [done, setDone] = useState(false);
-  const [showLoading, setShowLoading] = useState(true);
-  const { loadingState, activitiesDis, activities } = props;
+  const [loading, setLoading] = useState(true);
+  const { activities, skillsLoading, actLoading } = props;
+  const { expLoading } = props;
 
   useEffect(
     () => {
-      activitiesDis();
-      if (loadingState) {
+      let status = !skillsLoading && !actLoading && !expLoading ? true : false;
+      if (status) {
         setTimeout(() => {
           setDone(true);
-        }, 3000);
+          setTimeout(() => {
+            setLoading(false);
+          }, 700);
+        }, 2000);
       }
     },
-    [loadingState, activitiesDis]
+    [skillsLoading, actLoading, expLoading]
   );
-
-  const loading = status => {
-    setTimeout(() => {
-      setShowLoading(false);
-    }, 800);
-  };
 
   return (
     <div className="App">
-      {showLoading && (
-        <LoadingScreen done={done} loading={status => loading(status)} />
-      )}
+      {loading && <LoadingScreen done={done} />}
       <ViewContainer bg="#f7f8fa">
         <Intro />
       </ViewContainer>
@@ -60,12 +55,14 @@ function App(props) {
 }
 
 const mapStateToProps = state => ({
-  loadingState: state.skills.loading,
+  skillsLoading: state.skills.loading,
+  actLoading: state.activities.loading,
+  expLoading: state.exps.loading,
   activities: state.activities.activities
 });
 
 const mapDispatchToProps = dispatch => ({
-  activitiesDis: payload => dispatch(fetchActivities())
+  loadingDis: payload => dispatch({ type: "LOADING", payload: payload })
 });
 
 export default connect(

@@ -13,7 +13,7 @@ import { fetchSkills } from "../redux/actions/skillsActions";
 function Intro(props) {
   const s = useStyles();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { skillsDis } = props;
+  const { skillsDis, loading } = props;
 
   const handleModal = modalState => {
     setDialogOpen(modalState);
@@ -21,8 +21,11 @@ function Intro(props) {
 
   useEffect(
     () => {
-      skillsDis();
+      skillsDis(loading).then(done => {
+        return;
+      });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [skillsDis]
   );
   return (
@@ -46,12 +49,16 @@ function Intro(props) {
   );
 }
 
+const mapStateToProps = state => ({
+  loading: state.loading
+});
+
 const mapDispatchToProps = dispatch => ({
-  skillsDis: payload => dispatch(fetchSkills())
+  skillsDis: payload => dispatch(fetchSkills(payload))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Intro);
 

@@ -15,6 +15,7 @@ function Experiences(props) {
     () => {
       expsDis();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [expsDis]
   );
 

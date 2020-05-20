@@ -2,7 +2,7 @@ import axios from "axios";
 import IsInDev from "../../configs/devConfig";
 import { skillsFetch } from "../types/skillsTypes";
 
-const fetchSkills = () => {
+const fetchSkills = loadingStatus => {
   const getSkills = dispatch => {
     try {
       return axios({

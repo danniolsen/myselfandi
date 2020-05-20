@@ -78,7 +78,10 @@ const ExperienceContainer = props => {
           )}
           {totalDate.yyyy === 0 &&
             totalDate.mm === 0 && (
-              <p className={s.dateTxt}>{totalDate.dd} Days</p>
+              <p className={s.dateTxt}>
+                {totalDate.dd}
+                {totalDate.dd.length < 1 ? " Days" : " Day"}
+              </p>
             )}
         </div>
       </header>
