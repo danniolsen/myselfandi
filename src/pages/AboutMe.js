@@ -109,15 +109,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 100,
     padding: "50px 0px"
   },
-  container: {
-    margin: "10px auto",
-    width: "80%",
-    maxWidth: 500,
-    borderRadius: 10,
-    background: "#FFF",
-    [theme.breakpoints.down("xs")]: { width: "96%" },
-    [theme.breakpoints.down("sm")]: { width: "95%" }
-  },
   header: {
     width: "100%",
     borderRadius: "10px 10px 0px 0px",
