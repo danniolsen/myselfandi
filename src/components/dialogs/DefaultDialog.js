@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 function DefaultDialog(props) {
-  const { open, title, btnTxt, btnAction } = props;
+  const { open, title, btnTxt, btnAction, maxWidth } = props;
   const s = useStyles();
 
   const handleClose = () => {
@@ -27,7 +27,7 @@ function DefaultDialog(props) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
         className={s.modalContainer}
-        fullWidth={true}
+        maxWidth={maxWidth !== null ? maxWidth : "md"}
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>{props.children}</DialogContent>
@@ -49,7 +49,8 @@ const useStyles = makeStyles(theme => ({
 DefaultDialog.defaultProps = {
   open: false,
   title: "No title provided",
-  btnTxt: ""
+  btnTxt: "",
+  maxWidth: "md"
 };
 DefaultDialog.propTypes = {
   open: PropTypes.bool,

@@ -2431,11 +2431,6 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bezier-easing@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
-  integrity sha1-wE3+i5JtbsrKGBPWn/F5t8ICXYY=
-
 big.js@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
@@ -8592,7 +8587,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, "prop-types@^15.6.2  ", prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8807,15 +8802,6 @@ react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-i
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-plx@^1.3.15:
-  version "1.3.15"
-  resolved "https://registry.yarnpkg.com/react-plx/-/react-plx-1.3.15.tgz#3681f7a9fcdd6b7ec19822e26d37eefe30f19cc8"
-  integrity sha512-tyd7F2yKuTjThJT07Cz94sbhmX4lVZMGf2gyHwbnA5B3KCQsQauY8vGjJ7CQhKF59fNPpwtlhVWNV1Vt0BCE4Q==
-  dependencies:
-    bezier-easing "^2.1.0"
-    prop-types "^15.6.2  "
-    window-scroll-manager "^1.1.3"
 
 react-redux@^7.2.0:
   version "7.2.0"
@@ -10844,11 +10830,6 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
-
-window-scroll-manager@^1.1.3:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/window-scroll-manager/-/window-scroll-manager-1.1.4.tgz#7033c12edf778cb85fe545d3a1c37e1f1a7870c9"
-  integrity sha512-Oj916sD6Daigs128qtksCcBGvwXcuTuMn65m1FEp/QINBwbkval43p0qfZna2GFExXZFdoMTT3/s1of0szsG7A==
 
 word-wrap@~1.2.3:
   version "1.2.3"
