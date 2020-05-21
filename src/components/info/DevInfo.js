@@ -5,7 +5,7 @@ import DefaultDialog from "../dialogs/DefaultDialog";
 
 const DevInfoBtn = props => {
   const s = useStyles();
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleModal = status => {
     setOpenModal(status);
@@ -24,7 +24,7 @@ const DevInfoBtn = props => {
       <div className={s.button}>
         <i
           className={"material-icons"}
-          style={{ fontSize: 40 }}
+          style={{ fontSize: 40, color: "#FFF" }}
           onClick={() => handleModal(true)}
         >
           info
@@ -38,7 +38,7 @@ const DevInfo = props => {
   const s = useStyles();
 
   return (
-    <div>
+    <div className={s.devinfo}>
       <DevCon title="Frontend">
         <p>React js, Redux, material ui and react hooks.</p>
         <p>The frontend is deployed with firebase hosting</p>
@@ -70,13 +70,22 @@ const DevCon = props => {
 export { DevInfoBtn };
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    width: 100,
+    height: 100,
+    position: "fixed",
+    bottom: 0,
+    right: 0,
+    background:
+      "linear-gradient( -45deg, #3498db 0%, #3498db 50%, transparent 39%, transparent 40%)"
+  },
   button: {
     width: 40,
     height: 40,
-    position: "fixed",
-    bottom: 20,
-    right: 20,
     padding: 10,
+    bottom: 0,
+    right: 0,
+    position: "absolute",
     cursor: "pointer",
     "&:active": {
       opacity: 0.7
@@ -84,5 +93,11 @@ const useStyles = makeStyles(theme => ({
   },
   devCon: { marginBottom: 40 },
   titleTxt: { fontWeight: "bold", margin: "2px 0px 5px 0px" },
-  bodyTxt: { padding: "5px 0px 10px 0px", lineHeight: 1.5 }
+  bodyTxt: {
+    padding: "5px 5px 10px 5px",
+    lineHeight: 1.6,
+    color: "#535454",
+    fontSize: "0.9em",
+    fontWeight: 300
+  }
 }));

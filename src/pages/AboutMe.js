@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
     color: "#3498db",
     fontSize: "2em",
     fontWeight: 300,
-    padding: "50px 0px"
+    padding: "25px 0px"
   },
   container: {
     borderRadius: 10,
