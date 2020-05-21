@@ -40,6 +40,7 @@ const ExperienceContainer = props => {
       <DefaultDialog
         open={modalOpen}
         title={company}
+        maxWidth="md"
         closeModal={() => readMore(false)}
       >
         {description.map((desc, i) => {

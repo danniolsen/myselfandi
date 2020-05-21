@@ -37,6 +37,7 @@ function AboutMe(props) {
         <Grid container>
           <DefaultDialog
             open={moreOpen}
+            maxWidth="sm"
             title={readMoreData.act_i_name}
             closeModal={() => readMore(false, {})}
           >

@@ -6,6 +6,7 @@ import ViewContainer from "./components/ViewContainer";
 import Intro from "./pages/Intro";
 import Experiences from "./pages/Experiences";
 import AboutMe from "./pages/AboutMe";
+import { DevInfoBtn } from "./components/info/DevInfo";
 
 function App(props) {
   const [done, setDone] = useState(false);
@@ -45,6 +46,8 @@ function App(props) {
           );
         })}
       </ViewContainer>
+
+      <DevInfoBtn />
     </div>
   );
 }
