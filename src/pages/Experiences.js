@@ -23,6 +23,7 @@ function Experiences(props) {
     <div className={s.root}>
       <div className={s.headline}>
         <p>Experiences</p>
+        <p className={s.headlineSub}>In reversed order</p>
       </div>
 
       <div className={s.experienceCon}>
@@ -73,8 +74,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "#3498db",
     fontSize: "2em",
-    fontWeight: 100,
+    fontWeight: 300,
     padding: "50px 0px"
   },
+  headlineSub: { fontSize: "0.6em", marginTop: 10 },
   content: { display: "flex" }
 }));

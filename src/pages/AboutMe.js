@@ -94,8 +94,7 @@ export default connect(
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100vw",
-    background: "#F00"
+    width: "100vw"
   },
   containerInner: {
     background: `url(${Background}) center center fixed no-repeat`,
@@ -106,8 +105,14 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "#3498db",
     fontSize: "2em",
-    fontWeight: 100,
+    fontWeight: 300,
     padding: "50px 0px"
+  },
+  container: {
+    borderRadius: 10,
+    margin: "10px auto 30px auto",
+    maxWidth: "80%",
+    background: "#FFF"
   },
   header: {
     width: "100%",

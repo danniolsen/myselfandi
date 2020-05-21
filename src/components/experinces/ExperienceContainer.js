@@ -92,11 +92,10 @@ const ExperienceContainer = props => {
           <p className={s.descText}>{description[0].des_text}</p>
         </div>
       </div>
-      {description.length > 1 && (
-        <div className={s.moreCon}>
-          <p onClick={() => readMore(true)}>read more</p>
-        </div>
-      )}
+
+      <div className={s.moreCon}>
+        <p onClick={() => readMore(true)}>read more</p>
+      </div>
     </div>
   );
 };
@@ -172,7 +171,7 @@ const useStyles = makeStyles(theme => ({
     color: "#535454",
     fontWeight: 300,
     fontSize: "0.9em",
-    margin: "15px 0px"
+    margin: "4px 0px 30px 0px"
   },
   moreCon: {
     width: "96%",
@@ -188,7 +187,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 ExperienceContainer.defaultProps = {
-  color: "#F00",
+  color: "#000",
   company: "Company name",
   position: "position name",
   sDate: "",

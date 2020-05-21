@@ -9,28 +9,23 @@ import AboutMe from "./pages/AboutMe";
 
 function App(props) {
   const [done, setDone] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const { activities, skillsLoading, actLoading } = props;
-  const { expLoading } = props;
+  const { activities, skillsLoading } = props;
 
   useEffect(
     () => {
-      let status = !skillsLoading && !actLoading && !expLoading ? true : false;
+      let status = !skillsLoading;
       if (status) {
         setTimeout(() => {
           setDone(true);
-          setTimeout(() => {
-            setLoading(false);
-          }, 700);
-        }, 2000);
+        }, 500);
       }
     },
-    [skillsLoading, actLoading, expLoading]
+    [skillsLoading]
   );
 
   return (
     <div className="App">
-      {loading && <LoadingScreen done={done} />}
+      <LoadingScreen done={done} />
       <ViewContainer bg="#f7f8fa">
         <Intro />
       </ViewContainer>
@@ -56,8 +51,6 @@ function App(props) {
 
 const mapStateToProps = state => ({
   skillsLoading: state.skills.loading,
-  actLoading: state.activities.loading,
-  expLoading: state.exps.loading,
   activities: state.activities.activities
 });
 

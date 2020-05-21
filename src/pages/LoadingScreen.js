@@ -15,13 +15,14 @@ function LoadingScreen(props) {
 
   useEffect(
     () => {
-      let height = window.innerHeight;
+      window.scrollTo(0, 0); // prevent spage from jumping
       if (done) {
-        setFixedStyles({});
-        window.scroll({
-          top: height,
-          left: 0,
-          behavior: "smooth"
+        // add transition and remove fixed styles
+        setFixedStyles({
+          height: "0",
+          opacity: 0,
+          transition: "height 0.7s 0.7s, opacity 0.6s",
+          position: "relative"
         });
       }
     },
