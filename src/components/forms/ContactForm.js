@@ -30,6 +30,7 @@ function ContactForm(props) {
   };
 
   const validateInputs = input => {
+    console.log(input);
     setBtnInActive(true);
   };
 
@@ -39,9 +40,10 @@ function ContactForm(props) {
   };
   return (
     <div className={s.root}>
+      <p className={s.obsMsg}>OBS! This feature is not available yet :(</p>
       <div className={s.inputCon}>
         <InputField
-          //icon={<Inbox />}
+          icon="inbox"
           txt="to"
           type="email"
           name="reciver"
@@ -51,23 +53,23 @@ function ContactForm(props) {
       </div>
       <div className={s.inputCon}>
         <InputField
-          //icon={<Send />}
+          icon="email"
           txt="from"
           type="email"
           name="sender"
           value={newInputData.sender}
-          placeholder="Your Email"
+          placeholder="Email address"
           alterInput={inputData => updateInput(inputData)}
         />
       </div>
       <div className={s.inputCon}>
         <InputField
-          //icon={<Briefcase />}
+          icon="business"
           txt="Company"
           type="text"
           name="company"
           value={newInputData.company}
-          placeholder="Company name"
+          placeholder="Company"
           alterInput={inputData => updateInput(inputData)}
         />
       </div>
@@ -103,7 +105,9 @@ const InputField = props => {
   const s = useStyles();
   return (
     <div>
-      <div className={s.inputIcon}>{icon}</div>
+      <div className={s.inputIcon}>
+        <i className="material-icons">{icon}</i>
+      </div>
 
       <input
         className={s.inputField}
@@ -121,6 +125,7 @@ const InputField = props => {
 export default ContactForm;
 
 const useStyles = makeStyles(theme => ({
+  obsMsg: { color: "#e74c3c", textAlign: "center", padding: "20px 0px" },
   root: { minWidth: "100%", maxWidth: 600 },
   inputCon: {
     width: "100%",
