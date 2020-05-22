@@ -12,7 +12,7 @@ import { fetchSkills } from "../redux/actions/skillsActions";
 
 function Intro(props) {
   const s = useStyles();
-  const [dialogOpen, setDialogOpen] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { skillsDis, loading } = props;
 
   const handleModal = modalState => {
