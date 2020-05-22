@@ -12,7 +12,7 @@ import { fetchSkills } from "../redux/actions/skillsActions";
 
 function Intro(props) {
   const s = useStyles();
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(true);
   const { skillsDis, loading } = props;
 
   const handleModal = modalState => {
@@ -32,7 +32,6 @@ function Intro(props) {
     <div className={s.root}>
       <DefaultDialog
         title="Contact"
-        style={{ background: "#F00" }}
         open={dialogOpen}
         closeModal={() => handleModal(false)}
       >
