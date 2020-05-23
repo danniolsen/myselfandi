@@ -32,7 +32,6 @@ function Intro(props) {
     <div className={s.root}>
       <DefaultDialog
         title="Contact"
-        style={{ background: "#F00" }}
         open={dialogOpen}
         closeModal={() => handleModal(false)}
       >

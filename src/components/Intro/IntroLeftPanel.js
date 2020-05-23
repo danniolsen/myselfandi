@@ -24,6 +24,7 @@ function IntroLeftPanel(props) {
         <p className={s.txtSmall}>Copenhagen - Denmark</p>
         <p className={s.txtSmall}>Computer Science - 2019</p>
         <div className={s.dot} />
+        <p className={s.txtSmall}>Danni.r.olsen@gmail.com</p>
       </div>
 
       <div className={s.linksCon}>
