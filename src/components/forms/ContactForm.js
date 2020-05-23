@@ -173,6 +173,3 @@ const useStyles = makeStyles(theme => ({
     "&:active": { background: "#46a6e6" }
   }
 }));
-
-/*ContactForm.defaultProps = {};
-ContactForm.propTypes = {};*/
