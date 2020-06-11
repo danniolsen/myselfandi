@@ -6,11 +6,11 @@ import ProfileImage from "../../assets/images/profileimage.png";
 import Linkedin from "../../assets/contact/linkedin.png";
 import Github from "../../assets/contact/github.png";
 import Instagram from "../../assets/contact/instagram.png";
-import Email from "../../assets/contact/email.png";
+//import Email from "../../assets/contact/email.png";
 
 function IntroLeftPanel(props) {
   const s = useStyles();
-  const { openContact } = props;
+  //const { openContact } = props;
 
   return (
     <div className={s.root}>
@@ -51,9 +51,9 @@ function IntroLeftPanel(props) {
           <img src={Instagram} alt="social icon" className={s.icon} />
         </a>
 
-        <div className={s.socialIcon} onClick={() => openContact()}>
+        {/*<div className={s.socialIcon} onClick={() => openContact()}>
           <img src={Email} alt="social icon" className={s.icon} />
-        </div>
+        </div>*/}
       </div>
     </div>
   );
